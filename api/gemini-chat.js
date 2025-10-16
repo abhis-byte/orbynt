@@ -14,6 +14,6 @@ export default async function handler(req, res) {
     res.status(200).json({ reply });
   } catch (err) {
     console.error("Gemini error:", err);
-    res.status(500).json({ error: "Gemini error" });
+    res.status(500).json({ error: "Gemini error", details: err.message });
   }
 }
