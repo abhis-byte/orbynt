@@ -10,7 +10,7 @@ export default async function handler(req, res) {
 
   try {
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_KEY);
-    const models = await genAI.listModels();
+    const models = await genAI.listModels(); // ✅ correct method
     res.status(200).json({ models });
   } catch (err) {
     console.error("Model listing error:", err);
