@@ -1,6 +1,6 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+const { GoogleGenerativeAI } = require("@google/generative-ai");
 
-export default async function handler(req, res) {
+module.exports = async (req, res) => {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method Not Allowed" });
   }
@@ -25,4 +25,4 @@ export default async function handler(req, res) {
     console.error("Gemini error:", err);
     res.status(500).json({ error: "Gemini error", details: err.message });
   }
-}
+};
