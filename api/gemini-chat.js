@@ -1,17 +1,16 @@
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 module.exports = async (req, res) => {
-  // CORS headers for all responses
+  console.log("Method received:", req.method);
+
   res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS, GET");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
-  // Handle CORS preflight
   if (req.method === "OPTIONS") {
     return res.status(200).end();
   }
 
-  // Optional: handle GET for testing
   if (req.method === "GET") {
     return res.status(200).json({ message: "Gemini endpoint is alive" });
   }
